@@ -19,4 +19,4 @@ i hope i can document a variety of tastes and work experiences!”
 
 ## Personal Productivity {#personal-productivity}
 
-{{< expand "Licence" "profile/licence.md" >}}
+{{< expand "Licence" "profile/licences.md" >}}
