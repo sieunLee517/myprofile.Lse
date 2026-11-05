@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+
+  <head>
+    {{ partial "headers.html" . }}
+    {{ partial "custom_headers.html" . }}
+  </head>
+
+  <body>
+    <header class="container" id="top">
+      <h1>{{ .Site.Title }}</h1>
+
+      <nav aria-label="home section">
+        <ul class = "list-inline">
+          <li><a href="#about">About</a></li>
+          <li><a href="#records-of-major-events">Records of Major Events</a></li>
+          <li><a href="#productivities">Productivities</a></li>
+        </ul>
+      </nav>
+
+      
+    </header>
+    <main class = "container">
+      {{ .content }}
+
+
+      <p><a href="#top">top</a></p>
+    </main>
+
+
+    {{ partial "footer.html" . }}
+  </body>
+  </html>
