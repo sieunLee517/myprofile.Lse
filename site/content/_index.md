@@ -1,5 +1,5 @@
 ---
-title: "SieunLee"
+title: "Sieun Lee"
 ---
 
 ## About {#about}
