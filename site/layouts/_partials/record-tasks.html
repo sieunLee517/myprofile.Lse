@@ -1,11 +1,12 @@
 <section class="record-tasks" data-task-storage="{{ .RelPermalink }}">
   <div class="record-task-heading">
     <h2>{{ .Title }} 기록</h2>
-    <button type="button" class="record-task-action" data-add-task hidden>ADD Task</button>
-    <button type="button" class="record-task-action" data-delete-mode aria-pressed="false" hidden>Delete Task</button>
+    <button type="button" class="record-task-action" data-add-task disabled>ADD Task</button>
+    <button type="button" class="record-task-action" data-delete-mode aria-pressed="false" disabled>Delete Task</button>
   </div>
   <p>카드를 열면 세부 내용을 볼 수 있습니다. 새 카드와 편집 내용은 현재 브라우저에 저장됩니다.</p>
-  <p class="record-task-status" role="status"></p>
+  <p class="record-task-status" role="status">Task 기능을 불러오는 중입니다.</p>
+  <noscript><p>Task 추가와 삭제를 사용하려면 JavaScript를 켜세요.</p></noscript>
 
   <div class="db-card-grid">
     {{ range $index, $task := .Params.tasks }}
