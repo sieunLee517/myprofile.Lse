@@ -20,6 +20,26 @@
     font-weight: 600;
 }
 
+.record-task-heading .record-task-action {
+    padding: 4px 0;
+    border: 0;
+    background: transparent;
+    color: #000;
+    font-size: 11pt;
+    font-weight: 400;
+}
+
+.record-task-action:hover,
+.record-task-action[aria-pressed="true"] {
+    text-decoration: underline;
+}
+
+.is-selecting-task .db-task {
+    outline: 2px dashed #9b3030;
+    outline-offset: 2px;
+    cursor: pointer;
+}
+
 .record-tasks [hidden] {
     display: none;
 }
