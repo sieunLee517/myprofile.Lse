@@ -67,3 +67,17 @@
     font-weight: 500;
     line-height: 1.6;
 }
+header#top:not(.db-record-header) {
+    margin-top: 12px;
+    padding: 24px 16px;
+    height: auto;
+    overflow: visible;
+}
+
+header#top:not(.db-record-header) nav .list-inline {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px 12px;
+    margin: 0;
+}
