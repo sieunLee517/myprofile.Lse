@@ -1,0 +1,13 @@
+{{ $title := .Get 0 }}
+{{ $path := .Get 1 }}
+
+{{ with resources.Get $path }}
+<details>
+  <summary>{{ $title }}</summary>
+  <div>
+    {{ $.Page.RenderString (dict "display" "block") .Content }}
+  </div>
+</details>
+{{ else }}
+  {{ errorf "펼치기 본문 파일을 찾을 수 없습니다: %s" $path }}
+{{ end }}
