@@ -23,7 +23,10 @@
         const task = state.edits[card.dataset.taskId];
         if (!task) return;
 
-        card.querySelector(".db-task-topic").textContent = task.topic || card.dataset.defaultTopic || "주제 입력 예정";
+        const source = card.querySelector("[data-task-source]");
+        if (source) source.hidden = true;
+        card.querySelector(".record-task-values").hidden = false;
+        card.querySelector(".db-task-topic").textContent = task.topic || "주제 입력 예정";
         for (const field of fields) {
             card.querySelector(`[data-field="${field}"]`).textContent = task[field] || "작성 예정";
         }
@@ -50,21 +53,42 @@
             : "이 화면에는 반영됐지만 브라우저 저장이 제한되어 새로고침하면 사라질 수 있습니다.";
     }
 
+    function originalTask(card) {
+        const topic = card.dataset.defaultTopic;
+        const task = { topic: topic === "주제 입력 예정" ? "" : (topic || "") };
+        const source = card.querySelector("[data-task-source]");
+        if (!source) return task;
+
+        const headings = { "학습목적": "goal", "역할": "role", "과정": "process", "결과": "result" };
+        let field = "process";
+        for (const element of source.children) {
+            const text = (element.innerText || element.textContent).trim();
+            const heading = headings[text.replace(/[\s:：]/g, "")];
+            if (element.matches("h1, h2, h3, h4, h5, h6") && heading) {
+                field = heading;
+            } else if (text) {
+                task[field] = task[field] ? `${task[field]}
+
+${text}` : text;
+            }
+        }
+        return task;
+    }
+
     function edit(card, button) {
         const values = card.querySelector(".record-task-values");
+        const source = card.querySelector("[data-task-source]");
         const form = editorTemplate.content.firstElementChild.cloneNode(true);
-        const task = state.edits[card.dataset.taskId] || {};
+        const task = state.edits[card.dataset.taskId] || originalTask(card);
         for (const name of ["topic", ...fields]) {
             form.elements.namedItem(name).value = task[name] || "";
         }
 
-        if (!state.edits[card.dataset.taskId] && card.dataset.defaultTopic !== "주제 입력 예정") {
-            form.elements.namedItem("topic").value = card.dataset.defaultTopic || "";
-        }
-
         function finish() {
             form.remove();
-            values.hidden = false;
+            const showSource = source && !state.edits[card.dataset.taskId];
+            if (source) source.hidden = !showSource;
+            values.hidden = Boolean(showSource);
             button.hidden = false;
             button.focus();
         }
@@ -80,6 +104,7 @@
         });
         form.querySelector("[data-cancel-task]").addEventListener("click", finish);
 
+        if (source) source.hidden = true;
         values.hidden = true;
         button.hidden = true;
         card.querySelector(".db-task-content").append(form);

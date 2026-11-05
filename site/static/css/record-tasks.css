@@ -40,6 +40,19 @@
     cursor: pointer;
 }
 
+.record-tasks button[data-edit-task] {
+    padding: 4px 0;
+    border: 0;
+    background: transparent;
+    color: #1857a0;
+    font-size: 11pt;
+    font-weight: 400;
+}
+
+.record-tasks button[data-edit-task]:hover {
+    text-decoration: underline;
+}
+
 .record-tasks [hidden] {
     display: none;
 }
