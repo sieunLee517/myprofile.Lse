@@ -2,9 +2,9 @@
   page: /records/db
 - name: OS
   page: /records/os
-- name: 컴퓨터 구조
+- name: 컴퓨터구조
   page: /records/computer-architecture
-- name: 데이터 통신
+- name: Data Structures
   page: /records/data-communications
-- name: Java 프로그래밍
+- name: Java
   page: /records/java
