@@ -14,3 +14,42 @@
 .box-simple {
     min-height: 230px;
 }
+.profile-main {
+    font-size: 16px;
+    line-height: 1.65;
+}
+
+.profile-main > h2 {
+    font-size: 24px;
+    line-height: 1.3;
+    margin: 32px 0 12px;
+}
+
+.profile-main details {
+    margin: 8px 0;
+    padding: 10px 14px;
+    border: 1px solid #dbe2ea;
+    border-radius: 8px;
+}
+
+.profile-main summary {
+    font-size: 18px;
+    font-weight: 600;
+    color: #234769;
+    cursor: pointer;
+}
+
+.profile-main summary:focus-visible {
+    outline: 2px solid #234769;
+    outline-offset: 3px;
+}
+
+.profile-main details > div {
+    margin-top: 10px;
+}
+
+.profile-main details h3 {
+    font-size: 16px;
+    font-weight: 700;
+    margin: 16px 0 4px;
+}
