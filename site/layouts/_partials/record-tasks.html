@@ -1,7 +1,8 @@
 <section class="record-tasks" data-task-storage="{{ .RelPermalink }}">
   <div class="record-task-heading">
     <h2>{{ .Title }} 기록</h2>
-    <button type="button" data-add-task hidden>ADD Task</button>
+    <button type="button" class="record-task-action" data-add-task hidden>ADD Task</button>
+    <button type="button" class="record-task-action" data-delete-mode aria-pressed="false" hidden>Delete Task</button>
   </div>
   <p>카드를 열면 세부 내용을 볼 수 있습니다. 새 카드와 편집 내용은 현재 브라우저에 저장됩니다.</p>
   <p class="record-task-status" role="status"></p>
@@ -9,7 +10,7 @@
   <div class="db-card-grid">
     {{ range $index, $task := .Params.tasks }}
       {{ $number := add $index 1 }}
-      <details class="db-task"{{ if not $task.file }} data-task-id="seed-{{ $number }}" data-default-topic="{{ $task.topic | default "주제 입력 예정" }}"{{ end }}>
+      <details class="db-task" data-task-id="seed-{{ $number }}"{{ if not $task.file }} data-default-topic="{{ $task.topic | default "주제 입력 예정" }}"{{ end }}>
         <summary>
           <strong>Task {{ $number }}</strong>
           <span class="db-task-topic">{{ $task.topic | default "주제 입력 예정" }}</span>
