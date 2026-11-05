@@ -18,4 +18,4 @@ Undergraduate degree (Computer Science & Engineering)
 
 ## Personal Productivity {#personal-productivity}
 
-{{< expand "Licence" "profile/licences.md" >}}
+{{< expand "Licence" "profile/licences.md" "licence-list" >}}
