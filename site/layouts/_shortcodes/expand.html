@@ -2,7 +2,7 @@
 {{ $path := .Get 1 }}
 
 {{ with resources.Get $path }}
-<details{{ with .Get 2 }} class="{{ . }}"{{ end }}></details>
+<details{{ if ge (len $.Params) 3 }} class="{{ $.Get 2 }}"{{ end }}>
   <summary>{{ $title }}</summary>
   <div>
     {{ $.Page.RenderString (dict "display" "block") .Content }}
