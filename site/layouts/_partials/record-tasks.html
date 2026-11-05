@@ -32,6 +32,13 @@
             <dt>과정</dt><dd data-field="process">작성 예정</dd>
             <dt>결과</dt><dd data-field="result">작성 예정</dd>
           </dl>
+          {{ with $task.pdf }}
+             <p>
+            <a href="{{ . | relURL }}" target="_blank" rel="noopener">
+              과제 PDF 보기 (새 탭)
+            </a>
+          </p>
+          {{ end }}
           <button type="button" data-edit-task hidden>EDIT</button>
         </div>
       </details>
