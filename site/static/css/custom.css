@@ -53,3 +53,10 @@
     font-weight: 700;
     margin: 16px 0 4px;
 }
+.profile-github {
+    display: inline-block;
+    padding: 4px 8px;
+    font-size: 20px;
+    vertical-align: middle;
+    color:antiquewhite
+}
