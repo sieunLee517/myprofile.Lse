@@ -4,6 +4,9 @@
   {{ partial "headers.html" . }}
   {{ partial "custom_headers.html" . }}
   <link rel="stylesheet" href="{{ "css/major-records.css" | relURL }}">
+  <link rel="stylesheet" href="{{ "css/record-tasks.css" | relURL }}">
+  <script defer src="{{ "js/record-task-store.js" | relURL }}"></script>
+  <script defer src="{{ "js/record-tasks.js" | relURL }}"></script>
 </head>
 <body class="db-record-page">
   {{ $home := .Site.Home.RelPermalink }}
@@ -24,40 +27,8 @@
   </header>
 
   <main class="container db-record-main">
-    <h2>{{ .Title }} 과제 기록</h2>
-    {{ if .Params.tasks }}
-      <p>카드를 선택하면 과제 내용을 볼 수 있습니다.</p>
-
-      <div class="db-card-grid">
-        {{ range $index, $task := .Params.tasks }}
-          {{ $number := add $index 1 }}
-          <details class="db-task">
-            <summary>
-              <strong>Task {{ $number }}</strong>
-              <span class="db-task-topic">{{ $task.topic }}</span>
-            </summary>
-            <div class="db-task-content" tabindex="0" role="region" aria-label="Task {{ $number }} 세부 내용">
-              {{ with $task.file }}
-                {{ with resources.Get . }}
-                  {{ $.RenderString (dict "display" "block") .Content }}
-                {{ else }}
-                  {{ errorf "Task %d Markdown file is missing: %s" $number $task.file }}
-                {{ end }}
-              {{ else }}
-                <dl>
-                  <dt>학습 목적</dt><dd>작성 예정</dd>
-                  <dt>역할</dt><dd>작성 예정</dd>
-                  <dt>과정</dt><dd>작성 예정</dd>
-                  <dt>결과</dt><dd>작성 예정</dd>
-                </dl>
-              {{ end }}
-            </div>
-          </details>
-        {{ end }}
-      </div>
-    {{ else }}
-      {{ .Content }}
-    {{ end }}
+    {{ partial "record-tasks.html" . }}
+    {{ .Content }}
   </main>
 
   {{ partial "footer.html" . }}
