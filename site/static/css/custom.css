@@ -81,3 +81,7 @@ header#top:not(.db-record-header) nav .list-inline {
     gap: 8px 12px;
     margin: 0;
 }
+.profile-main #records-of-major,
+.profile-main #personal-productivity {
+    margin-top: clamp(40px, 6vw, 72px);
+}
