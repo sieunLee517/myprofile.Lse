@@ -1,0 +1,150 @@
+#top > h1,
+#top > h1 a {
+    color: #e5d59b;
+}
+
+.major-subjects ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 0;
+    margin: 0 0 8px;
+    list-style: none;
+}
+
+.major-subjects li {
+    padding: 6px 10px;
+    border: 1px solid #dbe2ea;
+    border-radius: 6px;
+}
+
+.major-subjects .major-more {
+    margin: 10px 0 0;
+    padding: 0;
+    border: 0;
+}
+
+.major-subjects .major-more summary {
+    width: fit-content;
+    margin-bottom: 8px;
+    padding: 3px 8px;
+    border: 1px solid #b7c5d3;
+    border-radius: 5px;
+    color: #234769;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.major-more-hide,
+.major-more[open] .major-more-show {
+    display: none;
+}
+
+.major-more[open] .major-more-hide {
+    display: inline;
+}
+
+.db-record-page {
+    background: #fff8d8;
+    color: #27313c;
+}
+
+.db-record-header {
+    padding: 12px 20px;
+    background: #3d4754;
+}
+
+.db-record-header nav a {
+    color: #e0f2ff;
+}
+
+.db-record-main {
+    padding-bottom: 40px;
+    font-size: 16px;
+}
+
+.db-card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 250px));
+    justify-content: center;
+    gap: 20px;
+    max-width: 790px;
+    margin: 24px auto 0;
+}
+
+.db-task {
+    position: relative;
+    height: 340px;
+    border: 2px solid #364252;
+    border-radius: 10px;
+    background: #fffdf5;
+}
+
+.db-task summary {
+    height: 100%;
+    padding: 24px 18px;
+    align-content: center;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.db-task-topic {
+    display: block;
+    margin: 8px 0 0 18px;
+    font-size: 16px;
+}
+
+.db-task[open] {
+    background: #fff;
+    animation: db-card-turn 240ms ease-out;
+}
+
+.db-task[open] summary {
+    height: auto;
+    padding: 12px 16px;
+    border-bottom: 1px solid #ddd;
+}
+
+.db-task[open] .db-task-topic {
+    display: none;
+}
+
+.db-task-content {
+    position: absolute;
+    inset: 53px 0 0;
+    overflow: auto;
+    padding: 10px 16px 16px;
+    line-height: 1.55;
+    overflow-wrap: anywhere;
+}
+
+.db-task-content h1,
+.db-task-content h2,
+.db-task-content h3,
+.db-task-content dt {
+    margin: 12px 0 4px;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.db-task-content :first-child {
+    margin-top: 0;
+}
+
+.major-more summary:focus-visible,
+.db-task summary:focus-visible,
+.db-task-content:focus-visible {
+    outline: 2px solid #234769;
+    outline-offset: -3px;
+}
+
+@keyframes db-card-turn {
+    from { transform: perspective(700px) rotateY(-90deg); }
+    to { transform: perspective(700px) rotateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .db-task[open] {
+        animation: none;
+    }
+}

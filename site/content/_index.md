@@ -14,7 +14,7 @@ Undergraduate degree (Computer Science & Engineering)
 
 ## Records of Major {#records-of-major}
 
-{{< expand "DB" "profile/db.md" >}}
+{{< major-list >}}
 
 ## Personal Productivity {#personal-productivity}
 
