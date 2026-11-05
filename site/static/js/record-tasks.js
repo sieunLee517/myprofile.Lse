@@ -184,6 +184,7 @@
         announce(`Task ${grid.children.length} 추가됨`);
     });
 
-    addButton.hidden = false;
-    deleteButton.hidden = false;
+    addButton.disabled = false;
+    deleteButton.disabled = false;
+    status.textContent = "";
 })();
