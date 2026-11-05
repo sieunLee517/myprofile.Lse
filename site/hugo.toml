@@ -12,15 +12,6 @@ summaryLength = 70
 # not pluralize title pages by default
 pluralizelisttitles = false
 
-[services]
-    # Enable comments by entering your Disqus shortname
-    [services.disqus]
-        shortname = "devcows"
-    # Enable Google Analytics by entering your tracking code
-    [services.googleAnalytics]
-        id = ""
-
-# Define the number of posts per page
 [pagination]
     pagerSize = 10
 
