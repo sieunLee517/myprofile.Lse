@@ -1,38 +1,55 @@
 #top > h1,
 #top > h1 a {
-    color: #e5d59b;
+    color: #ffe58a;
 }
 
 .major-subjects ul {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
     gap: 8px;
     padding: 0;
-    margin: 0 0 8px;
+    margin: 0;
     list-style: none;
 }
 
 .major-subjects li {
-    padding: 6px 10px;
+    margin: 0;
+}
+
+.major-subjects li a {
+    display: block;
+    padding: 12px 14px;
     border: 1px solid #dbe2ea;
-    border-radius: 6px;
+    border-radius: 8px;
+    color: #234769;
+    font-weight: 600;
+    text-align: center;
+}
+
+.major-subjects li a:hover {
+    background: #f4f7fa;
 }
 
 .major-subjects .major-more {
-    margin: 10px 0 0;
+    margin: 8px 0 0;
     padding: 0;
     border: 0;
 }
 
 .major-subjects .major-more summary {
+    display: block;
     width: fit-content;
-    margin-bottom: 8px;
-    padding: 3px 8px;
-    border: 1px solid #b7c5d3;
-    border-radius: 5px;
+    margin: 0 0 8px;
+    padding: 5px 0;
+    border: 0;
     color: #234769;
-    font-size: 13px;
+    font-size: 14px;
+    font-weight: 600;
     cursor: pointer;
+    list-style: none;
+}
+
+.major-subjects .major-more summary::-webkit-details-marker {
+    display: none;
 }
 
 .major-more-hide,

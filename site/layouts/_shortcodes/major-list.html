@@ -1,26 +1,29 @@
-{{ $db := .Page.Site.GetPage "/records/db" }}
-{{ if not $db }}{{ errorf "DB page is missing: content/records/db.md" }}{{ end }}
-{{ $subjects := slice "DB" "시스템 프로그래밍" "컴퓨터 구조" "데이터 통신" "Java 프로그래밍" }}
+{{ define "major-subject-rows" }}
+<ul>
+  {{ range .subjects }}
+    {{ $page := $.site.GetPage .page }}
+    {{ if not $page }}{{ errorf "Missing course page: %s" .page }}{{ end }}
+    <li>
+      <a href="{{ $page.RelPermalink }}" target="_blank" rel="noopener"
+         aria-label="{{ .name }} (새 탭에서 열기)">{{ .name }}</a>
+    </li>
+  {{ end }}
+</ul>
+{{ end }}
+
+{{ $site := .Page.Site }}
+{{ $subjects := hugo.Data.major_subjects }}
 {{ $limit := 3 }}
 <div class="major-subjects">
-  <ul>
-    {{ range first $limit $subjects }}
-    <li>
-      {{ if eq . "DB" }}
-      <a href="{{ $db.RelPermalink }}" target="_blank" rel="noopener">DB <small>(새 탭)</small></a>
-      {{ else }}
-      {{ . }}
-      {{ end }}
-    </li>
-    {{ end }}
-  </ul>
+  {{ template "major-subject-rows" (dict "site" $site "subjects" (first $limit $subjects)) }}
 
-  <details class="major-more">
-    <summary><span class="major-more-show">Show more</span><span class="major-more-hide">Show less</span></summary>
-    <ul>
-      {{ range after $limit $subjects }}
-      <li>{{ . }}</li>
-      {{ end }}
-    </ul>
-  </details>
+  {{ with after $limit $subjects }}
+    <details class="major-more">
+      <summary>
+        <span class="major-more-show"><span aria-hidden="true">↓</span> Show more</span>
+        <span class="major-more-hide"><span aria-hidden="true">↑</span> Show less</span>
+      </summary>
+      {{ template "major-subject-rows" (dict "site" $site "subjects" .) }}
+    </details>
+  {{ end }}
 </div>
