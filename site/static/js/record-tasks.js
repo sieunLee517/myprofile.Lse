@@ -5,12 +5,19 @@
 
     const grid = section.querySelector(".db-card-grid");
     const addButton = section.querySelector("[data-add-task]");
+    const deleteButton = section.querySelector("[data-delete-mode]");
     const status = section.querySelector(".record-task-status");
     const cardTemplate = section.querySelector("[data-new-task]");
     const editorTemplate = section.querySelector("[data-task-editor]");
     const fields = ["goal", "role", "process", "result"];
     const { state } = store;
+    state.removed ??= [];
+    let nextAddedNumber = state.added.reduce(
+        (largest, id) => Math.max(largest, Number(id.slice("added-".length))),
+        0,
+    ) + 1;
     let movements = [];
+    let selectingCard = false;
 
     function render(card) {
         const task = state.edits[card.dataset.taskId];
@@ -22,12 +29,16 @@
         }
     }
 
-    function addCard(id) {
-        const card = cardTemplate.content.firstElementChild.cloneNode(true);
-        const label = `Task ${grid.children.length + 1}`;
-        card.dataset.taskId = id;
+    function labelCard(card, number) {
+        const label = `Task ${number}`;
         card.querySelector("summary strong").textContent = label;
         card.querySelector(".db-task-content").setAttribute("aria-label", `${label} 세부 내용`);
+    }
+
+    function addCard(id) {
+        const card = cardTemplate.content.firstElementChild.cloneNode(true);
+        card.dataset.taskId = id;
+        labelCard(card, grid.children.length + 1);
         grid.append(card);
         render(card);
         return card;
@@ -76,24 +87,80 @@
     }
 
     for (const card of grid.querySelectorAll("[data-task-id]")) {
-        render(card);
-        card.querySelector("[data-edit-task]").hidden = false;
+        if (state.removed.includes(card.dataset.taskId)) {
+            card.remove();
+            continue;
+        }
+        const editButton = card.querySelector("[data-edit-task]");
+        if (editButton) {
+            render(card);
+            editButton.hidden = false;
+        }
     }
+    Array.from(grid.children).forEach((card, index) => labelCard(card, index + 1));
     for (const id of state.added) {
         addCard(id);
     }
 
+    function setDeleteMode(active) {
+        selectingCard = active;
+        section.classList.toggle("is-selecting-task", active);
+        deleteButton.setAttribute("aria-pressed", String(active));
+        status.textContent = active ? "삭제할 카드를 선택하세요. Esc 키로 취소할 수 있습니다." : "";
+    }
+
+    deleteButton.addEventListener("click", () => {
+        if (!grid.children.length) {
+            status.textContent = "삭제할 Task 카드가 없습니다.";
+            return;
+        }
+        setDeleteMode(!selectingCard);
+        if (selectingCard) grid.querySelector("summary").focus();
+    });
+
+    section.addEventListener("keydown", (event) => {
+        if (selectingCard && event.key === "Escape") {
+            setDeleteMode(false);
+            deleteButton.focus();
+        }
+    });
+
     grid.addEventListener("click", (event) => {
-        const button = event.target.closest("[data-edit-task]");
-        if (button) edit(button.closest(".db-task"), button);
+        if (!selectingCard) {
+            const button = event.target.closest("[data-edit-task]");
+            if (button) edit(button.closest(".db-task"), button);
+            return;
+        }
+
+        const card = event.target.closest(".db-task");
+        if (!card || event.target.closest("input, textarea, button, label, a")) return;
+        event.preventDefault();
+        const label = card.querySelector("summary strong").textContent;
+        if (!window.confirm(`${label} 카드와 저장한 내용을 삭제할까요?`)) return;
+
+        const { taskId } = card.dataset;
+        if (taskId.startsWith("seed-")) {
+            state.removed.push(taskId);
+        } else {
+            state.added = state.added.filter((id) => id !== taskId);
+        }
+        delete state.edits[taskId];
+
+        const nearby = card.nextElementSibling || card.previousElementSibling;
+        card.remove();
+        Array.from(grid.children).forEach((item, index) => labelCard(item, index + 1));
+        setDeleteMode(false);
+        (nearby?.querySelector("summary") || deleteButton).focus();
+        announce(`${label} 삭제됨`);
     });
 
     addButton.addEventListener("click", () => {
+        setDeleteMode(false);
         const previous = Array.from(grid.children, (card) => [card, card.getBoundingClientRect()]);
         for (const movement of movements) movement.cancel();
         movements = [];
 
-        const id = `added-${state.added.length + 1}`;
+        const id = `added-${nextAddedNumber++}`;
         state.added.push(id);
         const card = addCard(id);
 
@@ -118,4 +185,5 @@
     });
 
     addButton.hidden = false;
+    deleteButton.hidden = false;
 })();
