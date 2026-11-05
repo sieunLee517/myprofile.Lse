@@ -165,3 +165,36 @@
         animation: none;
     }
 }
+
+.major-subjects li a {
+    border: 0;
+    border-radius: 12px;
+    background: #92a8be;
+    transition: background-color 180ms ease;
+}
+
+.major-subjects li a:hover,
+.major-subjects li a:focus-visible {
+    background: #e7ecf1;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .major-subjects .major-more[open] li {
+        animation: major-subject-slide-in 280ms ease-out both;
+    }
+
+    .major-subjects .major-more[open] li + li {
+        animation-delay: 55ms;
+    }
+}
+
+@keyframes major-subject-slide-in {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
