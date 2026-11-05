@@ -391,10 +391,10 @@ pluralizelisttitles = false
 
 [params]
     viewMorePostLink = "/blog/"
-    author = "DevCows"
+    author = "SieunLee"
     defaultKeywords = ["devcows", "hugo", "go"]
     mainSections = ["blog"]
-    defaultDescription = "Site template made by Devcows using Hugo"
+    defaultDescription = "my personal site recording projects & major activities"
 
     # Social media
     facebook_site = "" # the Facebook handle of your site ('https://www.facebook.com/HANDLE')
@@ -402,7 +402,7 @@ pluralizelisttitles = false
     default_sharing_image = "img/sharing-default.png"
 
     # Google Maps widget: If `googleMapsApiKey` is not set, no key will be passed to Google (which likely results in a broken map widget).
-    enableGoogleMaps = true
+    enableGoogleMaps = false
     googleMapsApiKey = "AIzaSyAv7Sza8NSp9_l_g8G2vlo0H4ydEPn_2jY"
 
     latitude = "-12.043333"
@@ -453,8 +453,8 @@ pluralizelisttitles = false
 
     dropdown_mouse_over = false
 
-    disabled_logo = false
-    logo_text = "Universal"
+    disabled_logo = true
+    logo_text = "SieunLee"
 
     logo = "img/logo.png"
     logo_small = "img/logo-small.png"
