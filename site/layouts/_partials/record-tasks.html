@@ -1,8 +1,8 @@
 <section class="record-tasks" data-task-storage="{{ .RelPermalink }}">
   <div class="record-task-heading">
     <h2>{{ .Title }} 기록</h2>
-    <button type="button" class="record-task-action" data-add-task disabled>ADD Task</button>
-    <button type="button" class="record-task-action" data-delete-mode aria-pressed="false" disabled>Delete Task</button>
+    <button type="button" class="record-task-action" data-add-task disabled>ADD</button>
+    <button type="button" class="record-task-action" data-delete-mode aria-pressed="false" disabled>DELETE</button>
   </div>
   <p>카드를 열면 세부 내용을 볼 수 있습니다. 새 카드와 편집 내용은 현재 브라우저에 저장됩니다.</p>
   <p class="record-task-status" role="status">Task 기능을 불러오는 중입니다.</p>
@@ -11,7 +11,7 @@
   <div class="db-card-grid">
     {{ range $index, $task := .Params.tasks }}
       {{ $number := add $index 1 }}
-      <details class="db-task" data-task-id="seed-{{ $number }}"{{ if not $task.file }} data-default-topic="{{ $task.topic | default "주제 입력 예정" }}"{{ end }}>
+      <details class="db-task" data-task-id="seed-{{ $number }}" data-default-topic="{{ $task.topic | default "주제 입력 예정" }}">
         <summary>
           <strong>Task {{ $number }}</strong>
           <span class="db-task-topic">{{ $task.topic | default "주제 입력 예정" }}</span>
@@ -19,19 +19,20 @@
         <div class="db-task-content" tabindex="0" role="region" aria-label="Task {{ $number }} 세부 내용">
           {{ with $task.file }}
             {{ with resources.Get . }}
-              {{ $.RenderString (dict "display" "block") .Content }}
+              <div data-task-source>
+                {{ $.RenderString (dict "display" "block") .Content }}
+              </div>
             {{ else }}
               {{ errorf "Task %d Markdown file is missing: %s" $number $task.file }}
             {{ end }}
-          {{ else }}
-            <dl class="record-task-values">
-              <dt>학습 목적</dt><dd data-field="goal">작성 예정</dd>
-              <dt>역할</dt><dd data-field="role">작성 예정</dd>
-              <dt>과정</dt><dd data-field="process">작성 예정</dd>
-              <dt>결과</dt><dd data-field="result">작성 예정</dd>
-            </dl>
-            <button type="button" data-edit-task hidden>편집</button>
           {{ end }}
+          <dl class="record-task-values"{{ if $task.file }} hidden{{ end }}>
+            <dt>학습 목적</dt><dd data-field="goal">작성 예정</dd>
+            <dt>역할</dt><dd data-field="role">작성 예정</dd>
+            <dt>과정</dt><dd data-field="process">작성 예정</dd>
+            <dt>결과</dt><dd data-field="result">작성 예정</dd>
+          </dl>
+          <button type="button" data-edit-task hidden>EDIT</button>
         </div>
       </details>
     {{ end }}
@@ -50,7 +51,7 @@
           <dt>과정</dt><dd data-field="process">작성 예정</dd>
           <dt>결과</dt><dd data-field="result">작성 예정</dd>
         </dl>
-        <button type="button" data-edit-task>편집</button>
+        <button type="button" data-edit-task>EDIT</button>
       </div>
     </details>
   </template>
