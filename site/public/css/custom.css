@@ -1,0 +1,108 @@
+/* your styles go here */
+/* Example site test */
+
+.box-image-text .image {
+    min-height: 190px;
+    max-height: 190px;
+}
+
+.box-image-text .image img {
+    max-height: 190px;
+    margin: auto;
+}
+
+.box-simple {
+    min-height: 230px;
+}
+.profile-main {
+    font-size: 16px;
+    line-height: 1.65;
+}
+
+.profile-main > h2 {
+    font-size: 24px;
+    line-height: 1.3;
+    margin: 32px 0 12px;
+}
+
+.profile-main details {
+    margin: 8px 0;
+    padding: 10px 14px;
+    border: 1px solid #dbe2ea;
+    border-radius: 8px;
+}
+
+.profile-main summary {
+    font-size: 18px;
+    font-weight: 600;
+    color: #234769;
+    cursor: pointer;
+}
+
+.profile-main summary:focus-visible {
+    outline: 2px solid #234769;
+    outline-offset: 3px;
+}
+
+.profile-main details > div {
+    margin-top: 10px;
+}
+
+.profile-main details h3 {
+    font-size: 16px;
+    font-weight: 700;
+    margin: 16px 0 4px;
+}
+.profile-github {
+    display: inline-block;
+    padding: 4px 8px;
+    font-size: 20px;
+    vertical-align: middle;
+    color:antiquewhite
+}
+.profile-welcome {
+    margin: 24px 0 0;
+    color:darksalmon;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.6;
+}
+header#top:not(.db-record-header) {
+    margin-top: 12px;
+    padding: 24px 16px;
+    height: auto;
+    overflow: visible;
+}
+
+header#top:not(.db-record-header) nav .list-inline {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px 12px;
+    margin: 0;
+}
+.profile-main #records-of-major,
+.profile-main #personal-productivity {
+    margin-top: clamp(48px, 6vw, 80px);
+}
+
+.profile-main {
+    padding-bottom: 150px;
+}
+.licence-list ul {
+    padding-left: 0;
+    list-style: none;
+}
+
+.licence-list li {
+    padding: 14px 16px;
+    border-radius: 10px;
+    background-color: #e8f5ff;
+    color: #234769;
+    font-size: inherit;
+    line-height: 1.65;
+}
+
+.licence-list li + li {
+    margin-top: 10px;
+}

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>Sieun Lee on SieunLee</title>
+		<link>http://localhost:1313/myprofile.Lse/</link>
+		<description>Recent content in Sieun Lee on SieunLee</description>
+		<generator>Hugo</generator>
+		<language>en-us</language>
+		
+		
+		
+		
+			<atom:link href="http://localhost:1313/myprofile.Lse/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>DB</title>
+				<link>http://localhost:1313/myprofile.Lse/records/db/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>http://localhost:1313/myprofile.Lse/records/db/</guid>
+				<description></description>
+			</item>
+			<item>
+				<title>FAQ</title>
+				<link>http://localhost:1313/myprofile.Lse/faq/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>http://localhost:1313/myprofile.Lse/faq/</guid>
+				<description>&lt;p&gt;Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.&lt;/p&gt;&#xA;&lt;h2 id=&#34;1-what-to-do-if-i-have-still-not-received-the-order&#34;&gt;1. WHAT TO DO IF I HAVE STILL NOT RECEIVED THE ORDER?&lt;/h2&gt;&#xA;&lt;p&gt;Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>Java 프로그래밍</title>
+				<link>http://localhost:1313/myprofile.Lse/records/java/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>http://localhost:1313/myprofile.Lse/records/java/</guid>
+				<description>&lt;p&gt;과목 기록을 준비하고 있습니다.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>OS</title>
+				<link>http://localhost:1313/myprofile.Lse/records/os/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>http://localhost:1313/myprofile.Lse/records/os/</guid>
+				<description>&lt;p&gt;과목 기록을 준비하고 있습니다.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>데이터 통신</title>
+				<link>http://localhost:1313/myprofile.Lse/records/data-communications/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>http://localhost:1313/myprofile.Lse/records/data-communications/</guid>
+				<description>&lt;p&gt;과목 기록을 준비하고 있습니다.&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>컴퓨터 구조</title>
+				<link>http://localhost:1313/myprofile.Lse/records/computer-architecture/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>http://localhost:1313/myprofile.Lse/records/computer-architecture/</guid>
+				<description>&lt;p&gt;과목 기록을 준비하고 있습니다.&lt;/p&gt;</description>
+			</item>
+	</channel>
+</rss>

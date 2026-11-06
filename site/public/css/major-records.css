@@ -1,0 +1,200 @@
+#top > h1,
+#top > h1 a {
+    color: #ffe58a;
+}
+
+.major-subjects ul {
+    display: grid;
+    gap: 8px;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.major-subjects li {
+    margin: 0;
+}
+
+.major-subjects li a {
+    display: block;
+    padding: 12px 14px;
+    border: 1px solid #dbe2ea;
+    border-radius: 8px;
+    color: #234769;
+    font-weight: 600;
+    text-align: center;
+}
+
+.major-subjects li a:hover {
+    background: #f4f7fa;
+}
+
+.major-subjects .major-more {
+    margin: 8px 0 0;
+    padding: 0;
+    border: 0;
+}
+
+.major-subjects .major-more summary {
+    display: block;
+    width: fit-content;
+    margin: 0 0 8px;
+    padding: 5px 0;
+    border: 0;
+    color: #234769;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    list-style: none;
+}
+
+.major-subjects .major-more summary::-webkit-details-marker {
+    display: none;
+}
+
+.major-more-hide,
+.major-more[open] .major-more-show {
+    display: none;
+}
+
+.major-more[open] .major-more-hide {
+    display: inline;
+}
+
+.db-record-page {
+    background: #fff8d8;
+    color: #27313c;
+}
+
+.db-record-header {
+    padding: 12px 20px;
+    background: #3d4754;
+}
+
+.db-record-header nav a {
+    color: #e0f2ff;
+}
+
+.db-record-main {
+    padding-bottom: 40px;
+    font-size: 16px;
+}
+
+.db-card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 250px));
+    justify-content: center;
+    gap: 20px;
+    max-width: 790px;
+    margin: 24px auto 0;
+}
+
+.db-task {
+    position: relative;
+    height: 340px;
+    border: 2px solid #364252;
+    border-radius: 10px;
+    background: #fffdf5;
+}
+
+.db-task summary {
+    height: 100%;
+    padding: 24px 18px;
+    align-content: center;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.db-task-topic {
+    display: block;
+    margin: 8px 0 0 18px;
+    font-size: 16px;
+}
+
+.db-task[open] {
+    background: #fff;
+    animation: db-card-turn 240ms ease-out;
+}
+
+.db-task[open] summary {
+    height: auto;
+    padding: 12px 16px;
+    border-bottom: 1px solid #ddd;
+}
+
+.db-task[open] .db-task-topic {
+    display: none;
+}
+
+.db-task-content {
+    position: absolute;
+    inset: 53px 0 0;
+    overflow: auto;
+    padding: 10px 16px 16px;
+    line-height: 1.55;
+    overflow-wrap: anywhere;
+}
+
+.db-task-content h1,
+.db-task-content h2,
+.db-task-content h3,
+.db-task-content dt {
+    margin: 12px 0 4px;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.db-task-content :first-child {
+    margin-top: 0;
+}
+
+.major-more summary:focus-visible,
+.db-task summary:focus-visible,
+.db-task-content:focus-visible {
+    outline: 2px solid #234769;
+    outline-offset: -3px;
+}
+
+@keyframes db-card-turn {
+    from { transform: perspective(700px) rotateY(-90deg); }
+    to { transform: perspective(700px) rotateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .db-task[open] {
+        animation: none;
+    }
+}
+
+.major-subjects li a {
+    border: 0;
+    border-radius: 12px;
+    background: #92a8be;
+    transition: background-color 180ms ease;
+}
+
+.major-subjects li a:hover,
+.major-subjects li a:focus-visible {
+    background: #e7ecf1;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .major-subjects .major-more[open] li {
+        animation: major-subject-slide-in 280ms ease-out both;
+    }
+
+    .major-subjects .major-more[open] li + li {
+        animation-delay: 55ms;
+    }
+}
+
+@keyframes major-subject-slide-in {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

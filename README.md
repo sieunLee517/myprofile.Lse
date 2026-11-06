@@ -1,3 +1,48 @@
+## 과제 1 설치 및 실행
+
+이 저장소는 Hugo Universal 테마를 바탕으로 제작한 개인 포트폴리오입니다.
+홈에서 자기소개와 전공 과목 목록을 볼 수 있으며, DB 기록 페이지에서 실습 내용을 확인할 수 있습니다.
+
+- 공개 사이트 https://sieunlee517.github.io/myprofile.Lse/
+- 로컬 실행 도구 Git, Hugo Extended 0.167.0
+- 배포 GitHub Actions, GitHub Pages
+
+### 저장소 준비
+
+Git과 Hugo Extended를 설치한 뒤 터미널에서 다음 명령을 실행합니다.
+
+```powershell
+git clone https://github.com/sieunLee517/myprofile.Lse.git
+cd myprofile.Lse
+hugo version
+```
+
+### 로컬 미리보기
+
+저장소 루트에서 다음 명령을 실행합니다.
+
+```powershell
+hugo server --source site --config hugo.toml,pages.json --baseURL http://localhost:1313/myprofile.Lse/ --port 1313
+```
+
+브라우저에서 `http://localhost:1313/myprofile.Lse/`를 엽니다.
+Records of Major에서 DB를 선택해 과목 기록 페이지가 열리는지 확인합니다.
+서버를 종료하려면 터미널에서 `Ctrl+C`를 누릅니다.
+
+## 콘텐츠 수정 및 재배포
+
+- 홈의 자기소개와 섹션 구성은 `site/content/_index.md`에서 수정합니다.
+- 전공 과목 목록의 표시 이름과 링크는 `site/data/major_subjects.yaml`에서 수정합니다.
+- DB 기록 페이지의 내용은 `site/content/records/db.md`에서 수정합니다.
+- 자동 배포 설정은 `.github/workflows/hugo-pages.yml`에서 확인할 수 있습니다.
+
+1. 수정한 내용을 로컬에서 확인합니다.
+2. 변경한 파일을 커밋하고 `main`에 푸시합니다.
+3. GitHub의 Actions에서 해당 커밋의 `build`와 `deploy`가 모두 성공했는지 확인합니다.
+4. 공개 사이트에서 수정한 내용이 반영됐는지 확인합니다.
+
+
+
 # Universal Theme for Hugo
 
 [![Code Climate](https://codeclimate.com/github/devcows/hugo-universal-theme/badges/gpa.svg)](https://codeclimate.com/github/devcows/hugo-universal-theme)
@@ -79,7 +124,6 @@ $ git clone https://github.com/devcows/hugo-universal-theme
 ```
 
 For more information read the official [setup guide](https://gohugo.io/installation/) of Hugo.
-
 
 ## Configuration
 

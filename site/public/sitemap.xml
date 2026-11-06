@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>http://localhost:1313/myprofile.Lse/authors/</loc>
+  </url><url>
+    <loc>http://localhost:1313/myprofile.Lse/categories/</loc>
+  </url><url>
+    <loc>http://localhost:1313/myprofile.Lse/records/db/</loc>
+  </url><url>
+    <loc>http://localhost:1313/myprofile.Lse/faq/</loc>
+  </url><url>
+    <loc>http://localhost:1313/myprofile.Lse/records/java/</loc>
+  </url><url>
+    <loc>http://localhost:1313/myprofile.Lse/records/os/</loc>
+  </url><url>
+    <loc>http://localhost:1313/myprofile.Lse/records/</loc>
+  </url><url>
+    <loc>http://localhost:1313/myprofile.Lse/</loc>
+  </url><url>
+    <loc>http://localhost:1313/myprofile.Lse/tags/</loc>
+  </url><url>
+    <loc>http://localhost:1313/myprofile.Lse/records/data-communications/</loc>
+  </url><url>
+    <loc>http://localhost:1313/myprofile.Lse/records/computer-architecture/</loc>
+  </url>
+</urlset>

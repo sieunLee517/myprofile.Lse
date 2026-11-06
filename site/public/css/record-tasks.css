@@ -1,0 +1,111 @@
+.record-task-heading {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 20px 0 10px;
+}
+
+.record-task-heading h2 {
+    margin: 0;
+}
+
+.record-tasks button {
+    padding: 5px 12px;
+    border: 1px solid #9aafc4;
+    border-radius: 6px;
+    background: #f4f7fa;
+    color: #234769;
+    font: inherit;
+    font-weight: 600;
+}
+
+.record-task-heading .record-task-action {
+    padding: 4px 0;
+    border: 0;
+    background: transparent;
+    color: #000;
+    font-size: 11pt;
+    font-weight: 400;
+}
+
+.record-task-action:hover,
+.record-task-action[aria-pressed="true"] {
+    text-decoration: underline;
+}
+
+.is-selecting-task .db-task {
+    outline: 2px dashed #9b3030;
+    outline-offset: 2px;
+    cursor: pointer;
+}
+
+.record-tasks button[data-edit-task] {
+    padding: 4px 0;
+    border: 0;
+    background: transparent;
+    color: #1857a0;
+    font-size: 11pt;
+    font-weight: 400;
+}
+
+.record-tasks button[data-edit-task]:hover {
+    text-decoration: underline;
+}
+
+.record-tasks [hidden] {
+    display: none;
+}
+
+.record-task-status:empty {
+    margin: 0;
+}
+
+.record-tasks .db-card-grid {
+    grid-template-columns: minmax(0, 250px);
+}
+
+@media (min-width: 768px) {
+    .record-tasks .db-card-grid {
+        grid-template-columns: repeat(2, minmax(0, 250px));
+    }
+}
+
+@media (min-width: 992px) {
+    .record-tasks .db-card-grid {
+        grid-template-columns: repeat(3, minmax(0, 250px));
+    }
+
+    .record-tasks .db-task:nth-child(3n + 1):last-child {
+        grid-column: 2;
+    }
+}
+
+.record-tasks .db-task-topic,
+.record-task-values dd {
+    overflow-wrap: anywhere;
+}
+
+.record-task-values dd {
+    white-space: pre-wrap;
+}
+
+.record-task-editor label {
+    display: block;
+    margin: 0 0 10px;
+}
+
+.record-task-editor input,
+.record-task-editor textarea {
+    display: block;
+    width: 100%;
+    padding: 4px 6px;
+    border: 1px solid #9aafc4;
+    border-radius: 4px;
+    font: inherit;
+    font-weight: 400;
+}
+
+.record-task-editor textarea {
+    resize: vertical;
+}
